@@ -24,7 +24,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initScanner() {
-        IntentIntegrator(this).initiateScan()
+        val integrator = IntentIntegrator(this)
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+        integrator.setBarcodeImageEnabled(true)
+        integrator.setBeepEnabled(true)
+        integrator.initiateScan()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
